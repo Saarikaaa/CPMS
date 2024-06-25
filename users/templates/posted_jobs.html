@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'users/postedjobs.css' %}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="options-panel">
+            <div class="logo">
+                <img src="https://www.sctce.ac.in/images/SREE%20CHITRA%20THIRUNAL.jpg" alt="College Logo">
+            </div>
+            <ul>
+                <li><a href="{% url 'comp_dashboard' %}" id="dash">Dashboard</a></li>
+                <li><a href="{% url 'apply_post' %}" id="apply">Add Job Postings</a></li>
+                <li><a href="{% url 'posted_jobs' %}" id="posted_jobs">Posted Jobs</a></li>
+                <li><a href="{% url 'stud_applications' %}" id="stud_applications">Student Applications</a></li>
+            </ul>
+        </div>
+        <div class="posted-jobs">
+            <h2>Posted Jobs</h2>
+            <ul id="jobPostingsList">
+                {% for job in job_postings %}
+                <li id="job {{ job.job_id }}">
+                    <strong>Job Title:</strong> {{ job.job_title }}<br>
+                    <strong>Requirement:</strong> {{ job.job_requirement }}<br>
+                    <strong>Type:</strong> {{ job.job_type }}<br>
+                    <strong>Package:</strong> {{ job.job_package }}<br>
+                    <strong>Last Date to Apply:</strong> {{ job.last_date }}<br>
+                    <a href="{% url 'delete_job_posting' job.job_id %}">
+                        <button onclick="deleteJobPosting('job{{ job.job_id }}')">Delete</button>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>    
+    </div>
+</body>
+</html>

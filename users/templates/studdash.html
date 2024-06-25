@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'users/studdash.css' %}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="options-panel">
+            <div class="logo">
+                <img src="https://www.sctce.ac.in/images/SREE%20CHITRA%20THIRUNAL.jpg" alt="College Logo">
+            </div>
+            <ul>
+                <li><a href="{% url 'stud_dashboard' %}" id="dash">Dashboard</a></li>
+                <li><a href="{% url 'stud_apply_job' %}" id="apply">Apply for Jobs</a></li>
+                <li><a href="{% url 'stud_results' %}" id="result">Results</a></li>
+                <li><a href="#" id="notifications-link">Notifications</a></li>
+            </ul>
+        </div>
+        <div class="student-details">
+            <div class="student-info">
+
+                <h2>Student Details</h2>
+                <div class="info-box">
+                    <div class="label">Name:</div>
+                    <div class="value"> {{ student.name }} </div>  
+                </div>
+                <div class="info-box">
+                    <div class="label">University Reg. No:</div>
+                    <div class="value">{{ student.student_id }}</div>  
+                </div>
+                <div class="info-box">
+                    <div class="label">Email:</div>
+                    <div class="value">{{ student.email }}</div>  
+                </div>
+                <div class="info-box">
+                    <div class="label">Date of Birth:</div>
+                    <div class="value">{{ student.date_of_birth }}</div>
+                </div>
+                <div class="info-box">
+                    <div class="label">Department:</div>
+                    <div class="value">{{ student.department }}</div> 
+                </div>
+                
+                <div class="info-box">
+                    <div class="label">Batch:</div>
+                    <div class="value">{{ student.batch }}</div>  
+                </div>
+                <div class="info-box">
+                    <div class="label">CGPA:</div>
+                    <div class="value">{{ student.cgpa }}</div>  
+                </div>
+        
+                <div class="info-box">
+                    <div class="label">CV:</div>
+                    <div class="value">
+                        {% if student.cv %}
+                            <a href="{{ MEDIA_URL }}{{ student.cv.url }}" target="_blank">{{ student.cv.name }}</a>
+                        {% else %}
+                            No CV uploaded
+                        {% endif %}
+                    </div>
+                </div>
+                <form action="upload_cv/" method="post" enctype="multipart/form-data" id="cv-upload-form">
+                    {% csrf_token %}
+                    <input type="file" name="cv" id="cv">
+                        <button class="cv-button">Upload/Update CV</button>
+                </form>
+            </div>
+            <div class="student-photo">
+                <img src="{{ MEDIA_URL }}{{ student.photo.url }}" alt="Student Photo">  
+                <a href="{% url 'logout' %}">
+                    <button class="logout-button" id="logout-button">Logout</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Popup HTML -->
+    <div class="notification-popup" id="notification-popup">
+        <span class="close" onclick="closeNotification()">&times;</span>
+        <h2>Notifications</h2>
+        <div class="notification-content">
+            <div class="notification">
+                {% for notification in notifications %}
+                <p><strong>></strong>   {{ notification.message }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'users/studdash.js' %}">
+        {% for notification in notifications %}
+            alert("{{ notification.message }}");
+        {% endfor %}
+    </script>
+</body>
+</html>

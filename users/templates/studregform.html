@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{% static 'users/studregform.css' %}"> 
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration</h2>
+        <form method="POST" action='register_student/' enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="student_id">Student ID:</label>
+            <input type="text" id="student_id" name="student_id" required>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date_of_birth">Date of Birth (yyyy/mm/dd):</label>
+            <input type="text" id="date_of_birth" name="date_of_birth" required pattern="\d{4}-\d{2}-\d{2}" title="Please enter the date in yyyy-mm-dd format" placeholder="yyyy-mm-dd">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="1">Computer Science Engineering</option>
+                <option value="2">Electronics and Communication Engineering</option>
+                <option value="3">Mechanical Engineering</option>
+                <option value="4">Biotechnology Engineering</option>
+            </select>
+
+            <label for="batch">Batch:</label>
+            <select id="batch" name="batch" required>
+                <option value="2020-2024">2020-2024</option>
+                <option value="2021-2025">2021-2025</option>
+                <option value="2022-2026">2022-2026</option>
+            </select>
+
+            <label for="cgpa">CGPA:</label>
+            <input type='text' id="cgpa" name="cgpa" required>
+
+            <label for="cv">Upload CV:</label>
+            <input type="file" id="cv" name="cv" >
+
+            <label for="photo">Upload Photo:</label>
+            <input type="file" id="photo" name="photo" >
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

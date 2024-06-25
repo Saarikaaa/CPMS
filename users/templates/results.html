@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'users/results.css' %}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="options-panel">
+            <div class="logo">
+                <img src="https://www.sctce.ac.in/images/SREE%20CHITRA%20THIRUNAL.jpg" alt="College Logo">
+            </div>
+            <ul>
+                <li><a href="{% url 'stud_dashboard' %}" id="dashb">Dashboard</a></li>
+                <li><a href="{% url 'stud_apply_job' %}" id="applyj">Apply for Jobs</a></li>
+                <li><a href="{% url 'stud_results' %}" id="result">Results</a></li>
+                <li><a href="#" id="notifications-link">Notifications</a></li>
+            </ul>
+        </div>
+        <div class="student-details">
+            <h1>RESULTS</h1>
+            {% for job_posting in job_postings %}
+                <div class="student-info">
+                    <div class="result">    
+                        <h3>Company: {{ job_posting.company_name }}</h3>
+                        {% if job_posting.job %}
+                            {% if job_posting.accepted %}
+                                <p><strong>Congratulations!</strong></p>
+                                <p><strong>Position:</strong> {{ job_posting.job.job_title }}</p>
+                                <p><strong>Type:</strong> {{ job_posting.job.job_type }}</p>
+                                <p><strong>Salary:</strong> {{ job_posting.job.job_package }}</p>
+                            {% else %}
+                                <p>We regret to inform you that we have decided not to move forward with your application at this time</p>
+                            {% endif %}
+                        {% else %}
+                            <p>No job details available</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Notification Popup HTML -->
+    <div class="notification-popup" id="notification-popup">
+        <span class="close" onclick="closeNotification()">&times;</span>
+        <h2>Notifications</h2>
+        <div class="notification-content">
+            <div class="notification">
+                {% for notification in notifications %}
+                <p><strong>></strong>   {{ notification.message }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'users/results.js' %}"></script>
+</body>
+</html>

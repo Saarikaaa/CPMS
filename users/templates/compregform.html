@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Registration</title>
+    <link rel="stylesheet" href="{% static 'users/compregform.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Company Registration</h2>
+        <form action="register_company/" method="POST">
+            {% csrf_token %}
+            <label for="company_id">Company ID(Username):</label>
+            <input type="text" id="company_id" name="company_id" required>
+
+            <label for="company_name">Company Name:</label>
+            <input type="text" id="company_name" name="company_name" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="establishment_year">Year of Establishment:</label>
+            <input type="text" id="establishment_year" name="establishment_year" >
+
+            <label for="industry_type">Type of Industry:</label>
+            <select id="industry_type" name="industry_type" required>
+                <option value="IT" data-industry="IT">IT</option>
+                <option value="Manufacturing" data-industry="Manufacturing">Manufacturing</option>
+                <option value="Finance" data-industry="Finance">Finance</option>
+                <option value="Healthcare" data-industry="Healthcare">Healthcare</option>
+            </select>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script src="{% static 'users/compregform.js' %}"></script>
+</body>
+</html>
+
