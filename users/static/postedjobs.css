@@ -1,0 +1,201 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  
+  .dashboard-container {
+    display: flex;
+  }
+  
+  .options-panel {
+    width: 250px;
+    background-color: #1E347D; /* SCT College Blue */
+    color: #fff;
+    padding-top: 0px;
+    height: 100vh;
+  }
+  
+  .options-panel .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .options-panel .logo img {
+    width: 250px;
+  }
+  
+  .options-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .options-panel ul li {
+    padding: 20px;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .options-panel ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .options-panel ul li:hover {
+    background-color: #162b6e; /* Darker shade of blue on hover */
+  }
+  
+  .posted.jobs {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .posted.jobs h2 {
+    color: #1E347D;
+  }
+  
+  #jobPostingsList {
+    list-style: none;
+    padding: 0;
+    width: 200%;
+  }
+  
+  #jobPostingsList li {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  #jobPostingsList li strong {
+    display: inline-block;
+    color: #1E347D;
+    margin-bottom: 10px; /* Adds spacing between each line */
+    width: 150px; /* Adjust the width as needed */
+    margin-right: 20px; /* Adds space between label and value */
+}
+  
+  #jobPostingsList li button {
+    background-color: #e94325; /* Red color for delete button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    margin-top: 10px; /* Optional: Adds a bit of space above the button */
+  }
+  
+  #jobPostingsList li button:hover {
+    background-color: #d63d20; /* Darker shade of red on hover */
+  }
+  
+  .logout-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .logout-button {
+    padding: 10px 20px;
+    background-color: #e94325; /* Red color for logout button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .logout-button:hover {
+    background-color: #d63d20; /* Darker shade of red on hover */
+  }
+  
+  /* Additional styles from the previous CSS */
+  .student-details {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+  }
+  
+  .student-info {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-box {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    flex: 1;
+    font-weight: bold;
+  }
+  
+  .value {
+    flex: 1;
+  }
+  
+  .student-photo {
+    width: 200px;
+    margin-left: 20px;
+  }
+  
+  .student-photo img {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .cv-button {
+    display: block;
+    width: 20%;
+    padding: 10px;
+    background-color: #1E347D; /* SCT College Blue */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .cv-button:hover {
+    background-color: #162b6e; /* Darker shade of blue on hover */
+  }
+  
+  .notification-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    z-index: 1000;
+    display: none;
+  }
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Make the body fill the viewport height */
+}
+
+.container {
+    width: 50%; /* Set width to 50% of the viewport */
+}
+
+.content {
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.border-top {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+.text-muted a {
+    color: #6c757d;
+}
+
+.text-muted a:hover {
+    color: #0056b3;
+}
