@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Dashboard</title>
+    <link rel="stylesheet" href="{% static 'users/comp_jobpost.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="company-details">
+            <h2>Company Details</h2>
+            <p><strong>Company Name  : {{ company.company_name }} </p> </strong>
+            <p><strong>Location  : {{ company.location }} </p></strong>
+            <p><strong>Year of Establishment  : {{ company.establishment_year }}</p></strong>
+            <p><strong>Type of Industry  : {{ company.industry_type }} </p></strong>
+        </div>
+
+        <div class="job-postings">
+            <h2>Add Job Posting</h2>
+            <form action="add_post/" method="POST">
+                {% csrf_token %}
+                <label for="job_title">Job Title:</label>
+                <input type="text" id="job_title" name="job_title" required>
+
+                <label for="job_requirement">Requirement:</label>
+                <textarea id="job_requirement" name="job_requirement" required></textarea>
+
+                <label for="job_type">Type of Job:</label>
+                <select id="job_type" name="job_type" required>
+                    <option value="remote">Remote</option>
+                    <option value="offline">Offline</option>
+                </select>
+
+                <label for="job_package">Package:</label>
+                <input type="text" id="job_package" name="job_package" required>
+
+                <label for="last_date">Last Date to Apply:</label>
+                <input type="date" id="last_date" name="last_date" required>
+
+                <button type="submit">Add Job Posting</button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

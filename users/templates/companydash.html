@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'users/companydash.css' %}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="options-panel">
+            <div class="logo">
+                <img src="https://www.sctce.ac.in/images/SREE%20CHITRA%20THIRUNAL.jpg" alt="College Logo">
+            </div>
+            <ul>
+                <li><a href="{% url 'comp_dashboard' %}" id="dash">Dashboard</a></li>
+                <li><a href="{% url 'apply_post' %}" id="apply">Add Job Postings</a></li>
+                <li><a href="{% url 'posted_jobs' %}" id="posted_jobs">Posted Jobs</a></li>
+                <li><a href="{% url 'stud_applications' %}" id="stud_applications">Student Applications</a></li>
+        
+            </ul>
+        </div>
+        <div class="company-details">
+            <div class="company-info">
+                <h2>Company Details</h2>
+                <div class="info-box">
+                    <div class="label">Company ID:</div>
+                    <div class="value">{{ company.company_id }}</div> 
+                </div>
+                <div class="info-box">
+                    <div class="label">Company Name:</div>
+                    <div class="value">{{ company.company_name }}</div> 
+                </div>
+                <div class="info-box">
+                    <div class="label">Location:</div>
+                    <div class="value">{{ company.location }}</div>
+                </div>
+                <div class="info-box">
+                    <div class="label">Year of Establishment:</div>
+                    <div class="value">{{ company.establishment_year }}</div>
+                </div>
+                <div class="info-box">
+                    <div class="label">Type of Industry:</div>
+                    <div class="value">{{ company.industry_type }}</div>
+                </div>
+            </div>
+            <div class="content-panel">
+                <a href="{% url 'logout' %}">
+                    <button class="logout-button" id="logout-button" >Logout</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
