@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="{% static 'cpmsapp/stulogin.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="options">
+                <a href="{% url 'forgot_password' %}">Forgot Password?</a>
+                <span>|</span>
+                <a href="{% url 'student_reg' %}" id="registration-link">New Registration</a>
+            </div>
+
+            <button type="submit" id="login-button">Login</button>
+        </form>
+    </div>
+</body>
+</html>

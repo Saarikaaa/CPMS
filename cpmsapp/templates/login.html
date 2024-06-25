@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'cpmsapp/login.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Hello User!</h2>
+        <form id="loginForm" method="POST">
+            {% csrf_token %}
+            <label for="user_type">Select User Type:</label>
+            <select name="user_type" id="user_type">
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+                <option value="company">Company</option>
+            </select>
+            <button type="submit">Next</button>
+        </form>
+    </div>
+    {% comment %} <script src="{% static 'login.js' %}"></script> {% endcomment %}
+</body>
+</html>

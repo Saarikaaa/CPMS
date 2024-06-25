@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset Complete</title>
+    <link rel="stylesheet" href="{% static 'cpmsapp/reset_complete.css' %}">
+</head>
+<body>
+    <h2>Password Reset Complete</h2>
+    <p>Your password has been successfully reset.</p>
+    <p>You can now <a href="{% url 'student_login' %}">login</a> with your new password.</p>
+</body>
+</html>

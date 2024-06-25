@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="{% static 'cpmsapp/reset_pass.css' %}">
+</head>
+<body>
+    <h1>Reset your password</h1>
+    {% if validlink %}
+        <p>Please enter your new password twice:</p>
+        <form action="." method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Change my password" /></p>
+        </form>
+    {% else %}
+        <p>This password reset link is no longer valid. Please request a new one.</p>
+    {% endif %}
+</body>
+</html>

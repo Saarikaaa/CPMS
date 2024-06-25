@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Login</title>
+    <link rel="stylesheet" href="{% static 'cpmsapp/complogin.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Company Login</h2>
+        <form id="loginForm" method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="options">
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+                <span>|</span>
+                <a href="{% url 'comp_reg' %}" id="newRegistration">New Registration</a>
+            </div>
+
+            <button type="submit" id="loginButton">Login</button>
+        </form>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset</title>
+    <link rel="stylesheet" href="{% static 'cpmsapp/forgot_email.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Password Reset</h2>
+        <p>You're receiving this email because you requested a password reset for your account.</p>
+        <p>Please click the button below to reset your password:</p>
+        <p><a href="{{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}" class="btn">Reset Password</a></p>
+        <p>Your username, in case you've forgotten: {{ user.get_username }}
+            If you didn't request a password reset, you can ignore this email.</p>
+    </div>
+</body>
+</html>
